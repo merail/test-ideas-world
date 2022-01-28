@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1088155827418",
+    "project_id": "ideas-world-test-fd0b0",
+    "storage_bucket": "ideas-world-test-fd0b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088155827418:android:390001360df4321e7ff9e3",
+        "android_client_info": {
+          "package_name": "me.rail.ideasworldtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088155827418-e8ev8k6cprtbf7ckqn7vs538k4c6prqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANQkwHYtQIrKzLWhAhMZZFE69KMOb-q3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088155827418-e8ev8k6cprtbf7ckqn7vs538k4c6prqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
