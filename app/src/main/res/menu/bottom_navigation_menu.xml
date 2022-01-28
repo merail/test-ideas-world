@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/favoritesPage"
+        android:enabled="true"
+        android:icon="@drawable/favorites"
+        android:title="@string/favorites" />
+    <item
+        android:id="@+id/photosPage"
+        android:enabled="true"
+        android:icon="@drawable/photos"
+        android:title="@string/photos" />
+    <item
+        android:id="@+id/infoPage"
+        android:enabled="true"
+        android:icon="@drawable/info"
+        android:title="@string/info" />
+</menu>

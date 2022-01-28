@@ -22,6 +22,24 @@ class MainFragment: Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
+        setupBottomNavigationView()
+
         return binding.root
+    }
+
+    private fun setupBottomNavigationView() {
+        binding.bottomNavigation.selectedItemId = R.id.photosPage
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.favoritesPage ->
+                    navigator.addFragment(FavoritesFragment())
+                R.id.photosPage ->
+                    navigator.addFragment(PhotosFragment())
+                else ->
+                    navigator.addFragment(InfoFragment())
+            }
+
+            return@setOnItemSelectedListener true
+        }
     }
 }
