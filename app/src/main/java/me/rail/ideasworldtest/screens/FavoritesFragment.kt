@@ -1,23 +1,26 @@
-package me.rail.ideasworldtest
+package me.rail.ideasworldtest.screens
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
-import me.rail.ideasworldtest.databinding.FragmentInfoBinding
+import me.rail.ideasworldtest.databinding.FragmentFavoritesBinding
 
 @AndroidEntryPoint
-class InfoFragment: Fragment() {
+class FavoritesFragment : Fragment() {
 
-    private lateinit var binding: FragmentInfoBinding
-
+    private lateinit var binding: FragmentFavoritesBinding
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInfoBinding.inflate(inflater, container, false)
+        binding = FragmentFavoritesBinding.inflate(inflater, container, false)
+
+        Log.d("AAAAAAAAAAA", "FavoritesFragment")
 
         return binding.root
     }

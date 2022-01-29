@@ -1,4 +1,4 @@
-package me.rail.ideasworldtest
+package me.rail.ideasworldtest.main
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

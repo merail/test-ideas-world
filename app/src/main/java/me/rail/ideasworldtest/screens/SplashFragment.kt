@@ -1,4 +1,4 @@
-package me.rail.ideasworldtest
+package me.rail.ideasworldtest.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.databinding.FragmentSplashBinding
 import javax.inject.Inject
 

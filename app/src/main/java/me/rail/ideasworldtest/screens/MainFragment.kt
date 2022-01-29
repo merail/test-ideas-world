@@ -1,4 +1,4 @@
-package me.rail.ideasworldtest
+package me.rail.ideasworldtest.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
+import me.rail.ideasworldtest.main.Navigator
+import me.rail.ideasworldtest.R
 import me.rail.ideasworldtest.databinding.FragmentMainBinding
 import javax.inject.Inject
 
@@ -29,6 +31,7 @@ class MainFragment: Fragment() {
 
     private fun setupBottomNavigationView() {
         binding.bottomNavigation.selectedItemId = R.id.photosPage
+        navigator.addFragment(PhotosFragment())
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.favoritesPage ->

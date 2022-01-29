@@ -1,7 +1,8 @@
-package me.rail.ideasworldtest
+package me.rail.ideasworldtest.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import me.rail.ideasworldtest.R
 import javax.inject.Inject
 
 class Navigator @Inject constructor(activity: FragmentActivity) {

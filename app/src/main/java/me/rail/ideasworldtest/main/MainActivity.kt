@@ -1,9 +1,11 @@
-package me.rail.ideasworldtest
+package me.rail.ideasworldtest.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
+import me.rail.ideasworldtest.R
+import me.rail.ideasworldtest.screens.SplashFragment
 import me.rail.ideasworldtest.databinding.ActivityMainBinding
 import javax.inject.Inject
 

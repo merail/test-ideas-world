@@ -23,9 +23,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField 'String', 'BASE_URL', '"https://api.unsplash.com/"'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'BASE_URL', '"https://api.unsplash.com/"'
         }
     }
     compileOptions {
@@ -63,4 +68,11 @@ dependencies {
     def coroutines_version = '1.5.2'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    //Retrofit
+    def retrofit_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'
 }
