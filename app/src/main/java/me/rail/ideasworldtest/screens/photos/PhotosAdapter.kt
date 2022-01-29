@@ -1,4 +1,4 @@
-package me.rail.ideasworldtest.screens
+package me.rail.ideasworldtest.screens.photos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

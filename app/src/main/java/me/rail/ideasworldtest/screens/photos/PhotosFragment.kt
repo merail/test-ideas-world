@@ -1,25 +1,21 @@
-package me.rail.ideasworldtest.screens
+package me.rail.ideasworldtest.screens.photos
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import me.rail.ideasworldtest.databinding.FragmentPhotosBinding
-import me.rail.ideasworldtest.network.repos.list.PhotoRepo
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class PhotosFragment: Fragment() {
 
     private lateinit var binding: FragmentPhotosBinding
 
-    @Inject
-    lateinit var photoRepo: PhotoRepo
+    private val model: PhotosFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +25,8 @@ class PhotosFragment: Fragment() {
 
         binding.list.layoutManager = GridLayoutManager(requireContext(), 5)
 
-        lifecycleScope.launch {
-            val photos = photoRepo.getPhotos()
-            binding.list.adapter = PhotosAdapter(photos)
+        model.photos.observe(viewLifecycleOwner) {
+            binding.list.adapter = PhotosAdapter(it)
         }
 
         return binding.root
