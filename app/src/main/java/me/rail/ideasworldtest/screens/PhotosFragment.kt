@@ -1,12 +1,12 @@
 package me.rail.ideasworldtest.screens
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import me.rail.ideasworldtest.databinding.FragmentPhotosBinding
@@ -27,10 +27,11 @@ class PhotosFragment: Fragment() {
     ): View {
         binding = FragmentPhotosBinding.inflate(inflater, container, false)
 
+        binding.list.layoutManager = GridLayoutManager(requireContext(), 5)
+
         lifecycleScope.launch {
             val photos = photoRepo.getPhotos()
-            Log.d("test", photos.toString())
-            Log.d("test2", photos.size.toString())
+            binding.list.adapter = PhotosAdapter(photos)
         }
 
         return binding.root

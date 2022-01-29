@@ -9,6 +9,6 @@ interface HttpClient {
     suspend fun getPhotos(
         @Query("username") username: String = "Rail Meshcherov",
         @Query("page") page: Int = 1,
-        @Query("per_page") per_page: Int = 30
+        @Query("per_page") per_page: Int = 30,
     ): MutableList<Photo>
 }
