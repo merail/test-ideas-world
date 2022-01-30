@@ -8,7 +8,7 @@ import coil.load
 import me.rail.ideasworldtest.databinding.ItemPhotoBinding
 import me.rail.ideasworldtest.models.list.Photo
 
-class PhotosAdapter:
+class PhotosAdapter(private val onPhotoClick: ((String) -> Unit)? = null):
     RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
     private var photos: MutableList<Photo> ?= null
 
@@ -25,6 +25,9 @@ class PhotosAdapter:
         val item = photos?.get(position) ?: return
 
         holder.binding.photo.load(item.urls.small)
+        holder.binding.photo.setOnClickListener {
+            onPhotoClick?.invoke(item.id)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import me.rail.ideasworldtest.databinding.FragmentPhotosBinding
+import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.models.list.Photo
+import me.rail.ideasworldtest.screens.photos.item.ItemFragment
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class PhotosFragment: Fragment() {
@@ -21,6 +24,9 @@ class PhotosFragment: Fragment() {
     private val model: PhotosFragmentViewModel by viewModels()
 
     private lateinit var photosAdapter: PhotosAdapter
+
+    @Inject
+    lateinit var navigator: Navigator
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +50,9 @@ class PhotosFragment: Fragment() {
 
     private fun setupRecyclerView() {
         binding.list.layoutManager = GridLayoutManager(requireContext(), 5)
-        photosAdapter = PhotosAdapter()
+        photosAdapter = PhotosAdapter {
+            navigator.replaceFragment(ItemFragment.newInstance(it))
+        }
         binding.list.adapter = photosAdapter
     }
 
