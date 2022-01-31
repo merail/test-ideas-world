@@ -1,15 +1,18 @@
 package me.rail.ideasworldtest.screens.photos
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import me.rail.ideasworldtest.R
 import me.rail.ideasworldtest.databinding.FragmentPhotosBinding
 import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.models.list.Photo
@@ -35,6 +38,11 @@ class PhotosFragment: Fragment() {
     ): View {
         binding = FragmentPhotosBinding.inflate(inflater, container, false)
 
+        binding.preLoader.indeterminateDrawable
+            .setColorFilter(
+                ContextCompat.getColor(requireContext(), R.color.dark),
+                PorterDuff.Mode.SRC_IN
+            )
         setupRecyclerView()
         setupSwipeRefreshLayout()
 

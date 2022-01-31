@@ -1,10 +1,13 @@
 package me.rail.ideasworldtest.screens.photos.item
 
+import android.graphics.PorterDuff
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +18,7 @@ import me.rail.ideasworldtest.R
 import me.rail.ideasworldtest.databinding.FragmentItemBinding
 import me.rail.ideasworldtest.models.item.Item
 import me.rail.ideasworldtest.network.ApiResult
+
 
 private const val ARG_ID = "id"
 
@@ -46,6 +50,11 @@ class ItemFragment: Fragment() {
 
         binding.root.isClickable = true
 
+        binding.preLoader.indeterminateDrawable
+            .setColorFilter(
+                ContextCompat.getColor(requireContext(), R.color.dark),
+                PorterDuff.Mode.SRC_IN
+            )
         setupItem()
         setupLikeButton()
 
@@ -64,7 +73,10 @@ class ItemFragment: Fragment() {
                         item = apiResult._data!!
 
                         binding.item.load(item.urls.full)
-                        binding.description.text = item.description
+                        binding.description.movementMethod = ScrollingMovementMethod()
+                        item.description?.let {
+                            binding.description.text = it
+                        }
                     }
                     else -> {
                         binding.preLoader.visibility = View.GONE

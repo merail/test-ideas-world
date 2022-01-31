@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import me.rail.ideasworldtest.databinding.FragmentFavoritesBinding
 import me.rail.ideasworldtest.main.Navigator
-import me.rail.ideasworldtest.screens.photos.PhotosAdapter
 import me.rail.ideasworldtest.screens.photos.item.ItemFragment
 import javax.inject.Inject
 
@@ -45,7 +44,8 @@ class FavoritesFragment: Fragment() {
                 is FavoriteItemsState.Showing -> {
                     favoriteItemsAdapter.setItems(it.items)
                 }
-                else -> {}
+                else -> {
+                }
             }
         }
     }

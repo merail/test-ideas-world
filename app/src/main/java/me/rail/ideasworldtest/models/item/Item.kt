@@ -17,7 +17,7 @@ data class Item(
     val likes: Int,
     val liked_by_user: Boolean,
     val public_domain: Boolean,
-    val description: String,
+    val description: String?,
     val exif: Exif,
     val location: Location,
     val tags: List<Tag>,

@@ -46,5 +46,8 @@ class MainFragment: Fragment() {
 
             return@setOnItemSelectedListener true
         }
+        binding.bottomNavigation.setOnItemReselectedListener {
+
+        }
     }
 }

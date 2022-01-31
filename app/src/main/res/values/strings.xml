@@ -19,4 +19,6 @@
         - Coil <br>\n</br>
         - MVVM <br>\n</br>
         - Room</string>
+    <string name="no_description">No description!</string>
+    <string name="instagram">https://www.instagram.com/rail_mescherov/</string>
 </resources>

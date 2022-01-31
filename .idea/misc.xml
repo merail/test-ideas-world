@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/drawable/favorites.xml" value="0.1" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/drawable/info.xml" value="0.1" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/drawable/liked.xml" value="0.1" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/drawable/photos.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/drawable/state.xml" value="0.1" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/fragment_favorites.xml" value="0.15104166666666666" />
-        <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/fragment_info.xml" value="0.24394463667820068" />
+        <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/fragment_info.xml" value="0.12167300380228137" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/fragment_item.xml" value="0.2" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/fragment_list.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/Admin/StudioProjects/TestApps/test-ideas-world/app/src/main/res/layout/fragment_main.xml" value="0.1" />

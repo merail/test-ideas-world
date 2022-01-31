@@ -24,7 +24,9 @@ class PhotosAdapter(private val onPhotoClick: ((String) -> Unit)? = null):
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val item = photos?.get(position) ?: return
 
-        holder.binding.photo.load(item.urls.small)
+        holder.binding.photo.load(item.urls.small) {
+            crossfade(true)
+        }
         holder.binding.photo.setOnClickListener {
             onPhotoClick?.invoke(item.id)
         }

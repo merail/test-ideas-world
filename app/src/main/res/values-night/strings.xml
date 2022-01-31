@@ -12,4 +12,6 @@
     <string name="my_mail">rail.mesherov@yandex.ru</string>
     <string name="my_git">github.com/merail</string>
     <string name="stack">Стек:</string>
+    <string name="no_description">No description!</string>
+    <string name="instagram">https://www.instagram.com/rail_mescherov/</string>
 </resources>

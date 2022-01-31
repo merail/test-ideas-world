@@ -7,12 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import me.rail.ideasworldtest.databinding.ItemPhotoBinding
 import me.rail.ideasworldtest.db.FavoriteItem
-import me.rail.ideasworldtest.models.item.Item
-import me.rail.ideasworldtest.models.list.Photo
 
 class FavoriteItemsAdapter(private val onItemClick: ((String) -> Unit)? = null):
     RecyclerView.Adapter<FavoriteItemsAdapter.PhotoViewHolder>() {
-    private var items: List<FavoriteItem> ?= null
+    private var items: List<FavoriteItem>? = null
 
     class PhotoViewHolder(val binding: ItemPhotoBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -26,7 +24,9 @@ class FavoriteItemsAdapter(private val onItemClick: ((String) -> Unit)? = null):
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val item = items?.get(position) ?: return
 
-        holder.binding.photo.load(item.urlSmall)
+        holder.binding.photo.load(item.urlSmall) {
+            crossfade(true)
+        }
         holder.binding.photo.setOnClickListener {
             onItemClick?.invoke(item.id)
         }
