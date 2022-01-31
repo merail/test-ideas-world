@@ -7,4 +7,16 @@
     <string name="photo_item">Photo Item</string>
     <string name="item">Item</string>
     <string name="like">Like</string>
+    <string name="name">Мещеров Раиль</string>
+    <string name="my_photo">My photo</string>
+    <string name="my_phone">+7(917) 282-12-49</string>
+    <string name="my_mail">rail.mesherov@yandex.ru</string>
+    <string name="my_git">github.com/merail</string>
+    <string name="stack">Стек: <br>\n</br>
+        - Hilt <br>\n</br>
+        - Coroutines <br>\n</br>
+        - Retrofit <br>\n</br>
+        - Coil <br>\n</br>
+        - MVVM <br>\n</br>
+        - Room</string>
 </resources>

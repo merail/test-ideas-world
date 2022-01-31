@@ -1,13 +1,12 @@
 package me.rail.ideasworldtest.screens.photos.item
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import me.rail.ideasworldtest.db.FavoriteItem
 import me.rail.ideasworldtest.db.FavoriteItemsDao
 import me.rail.ideasworldtest.models.item.Item
@@ -20,7 +19,10 @@ class ItemFragmentViewModel @Inject constructor(
     private val favoriteItemsDao: FavoriteItemsDao
 ): ViewModel() {
 
+    private lateinit var id: String
+
     suspend fun getItem(id: String): Item {
+        this.id = id
         return itemRepo.getItem(id)
     }
 
@@ -36,7 +38,12 @@ class ItemFragmentViewModel @Inject constructor(
         }
     }
 
-    fun getIsLiked(id: String): Boolean {
-        return favoriteItemsDao.exists(id)
+    val isLiked = liveData {
+        val isLiked = getIsLiked()
+        emit(isLiked)
+    }
+
+    private suspend fun getIsLiked() = withContext(Dispatchers.IO) {
+        favoriteItemsDao.exists(id)
     }
 }

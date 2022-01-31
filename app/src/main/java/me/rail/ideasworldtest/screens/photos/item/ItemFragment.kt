@@ -28,6 +28,8 @@ class ItemFragment: Fragment() {
 
     private lateinit var item: Item
 
+    private var isLiked = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -59,10 +61,11 @@ class ItemFragment: Fragment() {
     }
 
     private fun setupLikeButton() {
-        id ?: return
-        var isLiked = model.getIsLiked(id!!)
+        model.isLiked.observe(viewLifecycleOwner) {
+            isLiked = it
 
-        setLikeBackground(isLiked)
+            setLikeBackground(isLiked)
+        }
 
         binding.like.setOnClickListener {
             setLikeBackground(!isLiked)
