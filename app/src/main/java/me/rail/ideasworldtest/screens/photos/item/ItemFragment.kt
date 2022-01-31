@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import me.rail.ideasworldtest.R
 import me.rail.ideasworldtest.databinding.FragmentItemBinding
 import me.rail.ideasworldtest.models.item.Item
+import me.rail.ideasworldtest.network.ApiResult
 
 private const val ARG_ID = "id"
 
@@ -43,6 +44,8 @@ class ItemFragment: Fragment() {
     ): View {
         binding = FragmentItemBinding.inflate(inflater, container, false)
 
+        binding.root.isClickable = true
+
         setupItem()
         setupLikeButton()
 
@@ -52,10 +55,23 @@ class ItemFragment: Fragment() {
     private fun setupItem() {
         lifecycleScope.launch {
             id?.let {
-                item = model.getItem(it)
+                when (val apiResult = model.getItem(it)) {
+                    is ApiResult.Success -> {
+                        binding.errorMessage.visibility = View.GONE
+                        binding.preLoader.visibility = View.GONE
+                        binding.itemLayout.visibility = View.VISIBLE
 
-                binding.item.load(item.urls.full)
-                binding.description.text = item.description
+                        item = apiResult._data!!
+
+                        binding.item.load(item.urls.full)
+                        binding.description.text = item.description
+                    }
+                    else -> {
+                        binding.preLoader.visibility = View.GONE
+                        binding.errorMessage.text = apiResult.message
+                        binding.errorMessage.visibility = View.VISIBLE
+                    }
+                }
             }
         }
     }

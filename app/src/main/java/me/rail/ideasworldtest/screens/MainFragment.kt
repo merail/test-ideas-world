@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
-import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.R
 import me.rail.ideasworldtest.databinding.FragmentMainBinding
+import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.screens.favorites.FavoritesFragment
 import me.rail.ideasworldtest.screens.photos.PhotosFragment
 import javax.inject.Inject

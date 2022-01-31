@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import me.rail.ideasworldtest.models.list.Photo
+import me.rail.ideasworldtest.network.ApiResult
 import me.rail.ideasworldtest.network.repos.list.PhotoRepo
 import javax.inject.Inject
 
@@ -18,14 +19,21 @@ class PhotosFragmentViewModel @Inject constructor(
     private val _refreshState = MutableLiveData<RefreshState>(RefreshState.IsNotRefreshing)
     val refreshState: LiveData<RefreshState> get() = _refreshState
 
-    suspend fun getPhotos(): MutableList<Photo> {
+    suspend fun getPhotos(): ApiResult<MutableList<Photo>> {
         return photoRepo.getPhotos()
     }
 
     fun setRefreshState(isRefreshing: Boolean) {
         if (isRefreshing) {
             viewModelScope.launch {
-                _refreshState.value = RefreshState.IsRefreshing(getPhotos())
+                when (val apiResult = getPhotos()) {
+                    is ApiResult.Success -> {
+                        _refreshState.value = RefreshState.IsRefreshing(apiResult._data)
+                    }
+                    else -> {
+                        _refreshState.value = RefreshState.IsNotRefreshing
+                    }
+                }
             }
         } else {
             _refreshState.value = RefreshState.IsNotRefreshing

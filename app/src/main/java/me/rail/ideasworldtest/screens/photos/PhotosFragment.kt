@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import me.rail.ideasworldtest.databinding.FragmentPhotosBinding
 import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.models.list.Photo
+import me.rail.ideasworldtest.network.ApiResult
 import me.rail.ideasworldtest.screens.photos.item.ItemFragment
 import javax.inject.Inject
 
@@ -43,9 +44,7 @@ class PhotosFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch {
-            photosAdapter.setPhotos(model.getPhotos())
-        }
+        handleApiResult()
     }
 
     private fun setupRecyclerView() {
@@ -59,7 +58,9 @@ class PhotosFragment: Fragment() {
     private fun setupSwipeRefreshLayout() {
         model.refreshState.observe(viewLifecycleOwner) {
             when (it) {
-                is RefreshState.IsRefreshing -> updateList(it.photos)
+                is RefreshState.IsRefreshing -> {
+                    updateList(it.photos)
+                }
                 else -> {
                 }
             }
@@ -70,7 +71,26 @@ class PhotosFragment: Fragment() {
         }
     }
 
-    private fun updateList(photos: MutableList<Photo>) {
+    private fun handleApiResult() {
+        lifecycleScope.launch {
+            when (val apiResult = model.getPhotos()) {
+                is ApiResult.Success -> {
+                    binding.errorMessage.visibility = View.GONE
+                    binding.preLoader.visibility = View.GONE
+                    binding.list.visibility = View.VISIBLE
+
+                    photosAdapter.setPhotos(apiResult._data)
+                }
+                else -> {
+                    binding.preLoader.visibility = View.GONE
+                    binding.errorMessage.text = apiResult.message
+                    binding.errorMessage.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+    private fun updateList(photos: MutableList<Photo>?) {
         photosAdapter.clear()
         photosAdapter.addAll(photos)
         binding.swipeRefreshLayout.isRefreshing = false

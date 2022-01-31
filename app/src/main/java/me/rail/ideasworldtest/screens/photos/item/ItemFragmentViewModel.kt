@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 import me.rail.ideasworldtest.db.FavoriteItem
 import me.rail.ideasworldtest.db.FavoriteItemsDao
 import me.rail.ideasworldtest.models.item.Item
+import me.rail.ideasworldtest.network.ApiResult
 import me.rail.ideasworldtest.network.repos.item.ItemRepo
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class ItemFragmentViewModel @Inject constructor(
 
     private lateinit var id: String
 
-    suspend fun getItem(id: String): Item {
+    suspend fun getItem(id: String): ApiResult<Item> {
         this.id = id
         return itemRepo.getItem(id)
     }

@@ -9,8 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import me.rail.ideasworldtest.main.Navigator
 import me.rail.ideasworldtest.databinding.FragmentSplashBinding
+import me.rail.ideasworldtest.main.Navigator
 import javax.inject.Inject
 
 @AndroidEntryPoint

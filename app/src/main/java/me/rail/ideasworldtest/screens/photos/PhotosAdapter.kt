@@ -10,7 +10,7 @@ import me.rail.ideasworldtest.models.list.Photo
 
 class PhotosAdapter(private val onPhotoClick: ((String) -> Unit)? = null):
     RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
-    private var photos: MutableList<Photo> ?= null
+    private var photos: MutableList<Photo>? = null
 
     class PhotoViewHolder(val binding: ItemPhotoBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -35,7 +35,7 @@ class PhotosAdapter(private val onPhotoClick: ((String) -> Unit)? = null):
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setPhotos(photos: MutableList<Photo>) {
+    fun setPhotos(photos: MutableList<Photo>?) {
         this.photos = photos
         notifyDataSetChanged()
     }
@@ -47,8 +47,8 @@ class PhotosAdapter(private val onPhotoClick: ((String) -> Unit)? = null):
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addAll(photos: MutableList<Photo>) {
-        this.photos?.addAll(photos)
+    fun addAll(photos: MutableList<Photo>?) {
+        photos?.let { this.photos?.addAll(it) }
         notifyDataSetChanged()
     }
 }

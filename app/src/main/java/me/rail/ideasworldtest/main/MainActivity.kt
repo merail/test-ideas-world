@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import me.rail.ideasworldtest.R
-import me.rail.ideasworldtest.screens.SplashFragment
 import me.rail.ideasworldtest.databinding.ActivityMainBinding
+import me.rail.ideasworldtest.screens.SplashFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint

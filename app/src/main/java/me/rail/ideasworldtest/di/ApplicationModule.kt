@@ -37,6 +37,7 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): FavoriteItemsDatabase {
-        return Room.databaseBuilder(context, FavoriteItemsDatabase::class.java, "favorite_items").build()
+        return Room.databaseBuilder(context, FavoriteItemsDatabase::class.java, "favorite_items")
+            .build()
     }
 }
