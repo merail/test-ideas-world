@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:contentDescription="@string/item"
-                android:padding="10dp"
+                android:padding="@dimen/item_padding"
                 app:layout_constraintBottom_toTopOf="@id/bottomBar"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,9 +31,9 @@
 
                 <ImageButton
                     android:id="@+id/like"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="20dp"
+                    android:layout_width="@dimen/like_size"
+                    android:layout_height="@dimen/like_size"
+                    android:layout_margin="@dimen/like_margin"
                     android:background="@drawable/favorites"
                     android:contentDescription="@string/like"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -41,15 +41,15 @@
 
                 <TextView
                     android:id="@+id/description"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="10dp"
+                    android:layout_width="@dimen/description_width"
+                    android:layout_height="@dimen/description_height"
+                    android:layout_margin="@dimen/description_margin"
                     android:fadeScrollbars="true"
                     android:gravity="center_horizontal"
                     android:scrollbars="vertical"
                     android:text="@string/no_description"
                     android:textColor="@color/dark"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/description_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -59,8 +59,8 @@
 
         <ProgressBar
             android:id="@+id/preLoader"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/preloader_size"
+            android:layout_height="@dimen/preloader_size"
             android:indeterminateTint="@color/dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,10 +72,10 @@
             android:id="@+id/errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/error_message_margin"
             android:gravity="center_horizontal"
             android:textColor="@color/dark"
-            android:textSize="25sp"
+            android:textSize="@dimen/error_message_size"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
